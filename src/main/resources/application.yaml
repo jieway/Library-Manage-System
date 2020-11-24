@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=LMS
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: sa
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource # 将默认的数据库连接池切换为 druid

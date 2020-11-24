@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>更新用户信息</title>
+    <!-- Custom fonts for this template -->
+    <link th:href="@{vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{css/css.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{css/sb-admin-2.min.css}" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link th:href="@{vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+
+</head>
+<body id="page-top">
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <div th:replace="~{commons/commons::sidebar}">
+    </div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <div th:replace="~{commons/commons::topbar}"></div>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">更新用户信息</h1>
+
+                <!--添加用户-->
+                <form class="user"   th:action="@{/updateUser}" method="post">
+
+                    <div class="form-group">
+                        <label>读者号</label><br/>
+                        <input th:value="${update_users.getRNO()}" type="text" name="RNO" class="form-control form-control-user" id="rno" placeholder="Enter username...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>读者名</label><br/>
+                        <input th:value="${update_users.getRNAME()}" type="text" name="RNAME" class="form-control form-control-user" id="rname" placeholder="Enter username...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>读者密码</label><br/>
+                        <input th:value="${update_users.getPassword()}" type="text" name="password" class="form-control form-control-user" id="password" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>超级用户</label><br/>
+                        <div class="form-check form-check-inline">
+                            <input th:check="${update_users.getSuperUser()  == 1 }" class="form-check-input" type="radio" name="superUser" value="1">
+                            <label class="form-check-label">是</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input th:check="${update_users.getSuperUser() == 0 }" class="form-check-input" type="radio" name="superUser" value="0">
+                            <label class="form-check-label">否</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>性别</label><br/>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="RSEX" value="男">
+                            <label class="form-check-label">男</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="RSEX" value="女">
+                            <label class="form-check-label">女</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-user btn-block" >提交信息</button>
+
+                </form>
+
+            </div>
+        </div>
+
+        <div th:replace="~{commons/commons::footer}"></div>
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" th:href="@{#page-top}">
+    <i class="fas fa-angle-up"></i>
+</a>
+<div th:replace="~{commons/commons::logout}"></div>
+<!-- Bootstrap core JavaScript-->
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Core plugin JavaScript-->
+<script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
+<!-- Custom scripts for all pages-->
+<script th:src="@{js/sb-admin-2.min.js}"></script>
+<!-- Page level plugins -->
+<script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+<!-- Page level custom scripts -->
+<script th:src="@{js/demo/datatables-demo.js}"></script>
+</body>
+</html>

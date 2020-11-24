@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<!--头部导航栏-->
+
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:fragment="topbar">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+            <a class="nav-link dropdown-toggle" th:href="@{#}" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" th:href="@{#}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">[[${session.loginUser}]]</span>
+                <img class="img-profile rounded-circle" th:src="@{img/ava.jpg}" >
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" th:href="@{#}">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    个人
+                </a>
+                <a class="dropdown-item" th:href="@{#}">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    设置
+                </a>
+                <a class="dropdown-item" th:href="@{#}">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    活动
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" th:href="@{#}" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    退出
+                </a>
+            </div>
+        </li>
+
+    </ul>
+
+</nav>
+<!-- End of Topbar -->
+
+
+<!--侧边导航栏-->
+
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="sidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{index.html}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">图书管理系统</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - 导航 -->
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/infoo}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>导航</span></a>
+    </li>
+
+    <!-- Nav Item - 书库-->
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/books}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>书库</span></a>
+    </li>
+    <!-- Nav Item - 用户管理-->
+    <li class="nav-item ">
+        <a class="nav-link" th:href="@{/emps}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>读者管理</span></a>
+    </li>
+
+    <!-- Nav Item - 用户管理-->
+<!--    <li class="nav-item ">-->
+<!--        <a class="nav-link" th:href="@{/borrowed}">-->
+<!--            <i class="fas fa-fw fa-table"></i>-->
+<!--            <span>已借阅</span></a>-->
+<!--    </li>-->
+
+    <!-- Nav Item - 用户 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{#}" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>其他</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Login Screens:</h6>
+                <a class="collapse-item" th:href="@{index.html}">Login</a>
+                <a class="collapse-item" th:href="@{register.html}">Register</a>
+                <a class="collapse-item" th:href="@{forgot-password.html}">Forgot Password</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" th:href="@{404.html}">404 Page</a>
+                <a class="collapse-item" th:href="@{blank.html}">Blank Page</a>
+            </div>
+        </div>
+    </li>
+
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>
+
+
+
+<!--log out-->
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" th:fragment="logout">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" th:href="@{index.html}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--脚标-->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white" th:fragment="footer">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>2020 <a target="_blank" th:href="@{http://weijiew.com/}">©weijiew.</a> Released under the MIT License.</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+
+<!---->
+</html>
